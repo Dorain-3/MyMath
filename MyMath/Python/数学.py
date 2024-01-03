@@ -22,4 +22,3 @@ def shushu_sine(degrees, terms=10):
     return result
 
 print(shushu_cosine(60))
-import math
