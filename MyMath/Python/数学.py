@@ -4,6 +4,7 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
+
 # 计算余弦值
 def shushu_cosine(degrees, terms=10):
     radians = degrees * (3.141592653589793 / 180)  # 角度转弧度
@@ -13,6 +14,7 @@ def shushu_cosine(degrees, terms=10):
         result += term
     return result
 
+
 def shushu_sine(degrees, terms=10):
     radians = degrees * (3.141592653589793 / 180)
     result = 0
@@ -20,5 +22,6 @@ def shushu_sine(degrees, terms=10):
         term = ((-1) ** n) * (radians ** (2 * n + 1)) / factorial(2 * n + 1)
         result += term
     return result
+
 
 print(shushu_cosine(60))

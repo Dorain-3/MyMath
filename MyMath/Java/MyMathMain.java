@@ -38,6 +38,7 @@ public class MyMathMain {
 					bufferedWriter.newLine();
 					x += 0.000005;
 				}
+
 				bufferedWriter.close();
 				fileWriter.close();
 			} catch (IOException e) {
