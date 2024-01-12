@@ -21,13 +21,13 @@ def floattopercent(a):
         return decimal_places_num2
 
 
-def jiecheng(a):
+def factorial(a):
     if (a < 0 or a != int(a)):
         return "阶乘输入只能为正整数"
     elif (a == 1 or a == 0):
         return 1
     else:
-        return a * jiecheng(a - 1)
+        return a * factorial(a - 1)
 
 
 # a底数 b次数
@@ -57,7 +57,7 @@ def sin(a):
     result = 0
     a = a * leibniz_pi(150)
     for i in range(1, 150, 2):
-        result = result + ((exponentiation(a, float(i))) / jiecheng(i)) * ((-1) ** ((i + 1) / 2 - 1))
+        result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
     return result
 
 
@@ -66,7 +66,7 @@ def cos(a):
     result = 0
     a = a * leibniz_pi(150)
     for i in range(0, 150, 2):
-        result = result + ((exponentiation(a, float(i))) / jiecheng(i)) * ((-1) ** (i / 2))
+        result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
     return result
 
 
@@ -90,26 +90,24 @@ def sec(a):
     return 1 / cos(a)
 
 
-# arcsin，a为-1~1
-def arcsin(a):
+# asin，a为-1~1
+def asin(a):
     result = 0
     a = a * leibniz_pi(150)
     for i in range(1, 10, 2):
-        result = result + (float(jiecheng(((i - 1) / 2) * 2)) / (
-                    exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(jiecheng(((i - 1) / 2))) ** 2))) * (
-                             a ** (i))
+        result = result + (float(factorial(((i - 1) / 2) * 2)) / (
+                    exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(factorial(((i - 1) / 2))) ** 2))) * (a ** (i))
     return result
 
 
-# arccos，a为-1~1
-def arccos(a):
+# acos，a为-1~1
+def acos(a):
     result = 0
     a = a * leibniz_pi(150)
     for i in range(1, 10, 2):
         n = int((i - 1) / 2)
         result = result + (
-                    float(jiecheng((i - 1))) / (exponentiation(float(4), float(n)) * i * ((jiecheng(n)) ** 2))) * (
-                             a ** (i))
+                    float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
     return leibniz_pi(150) / 2 - result
 
 
@@ -122,7 +120,7 @@ def arctan(a):
     return result
 
 
-def lnx(a):
+def ln(a):
     if (a <= 0):
         print("输入无效")
         return 0
@@ -131,26 +129,25 @@ def lnx(a):
         for i in range(1, 2000, 2):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
-    # a为底数，b为对数
 
-
-def logx(a, b):
+# a为底数，b为对数
+def log(a, b):
     if (a <= 0 or b <= 0):
         print("输入无效")
         return 0
     else:
-        return lnx(b) / lnx(a)
+        return ln(b) / ln(a)
 
 
 def sinh(a):
     result = 0
     for i in range(1, 100, 2):
-        result = result + (a ** i) / jiecheng(i)
+        result = result + (a ** i) / factorial(i)
     return result
 
 
 def cosh(a):
     result = 0
     for i in range(0, 100, 2):
-        result = result + (a ** i) / jiecheng(i)
+        result = result + (a ** i) / factorial(i)
     return result
