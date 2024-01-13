@@ -6,9 +6,7 @@ def ceil(x):
         return int(x) + 1
 
 def comb(n, k):
-    if not isinstance(n, int) or not isinstance(k, int):
-        raise TypeError("两个参数都应该为整数")
-    if n < 0 or k < 0:
+    if n < 0 or k < 0 or not isinstance(n, int) or not isinstance(k, int):
         raise ValueError("两个参数都应该为非负整数.")
     if 0 <= k <= n:
         return factorial(n) // (factorial(k) * factorial(n - k))
@@ -95,7 +93,7 @@ def frexp(x):
 
 def gcd(*integers):
     if not integers:
-        raise ValueError("gcd() requires at least one argument")
+        raise ValueError("gcd() 至少需要一个参数")
 
     result = integers[0]
     for num in integers[1:]:
@@ -103,6 +101,47 @@ def gcd(*integers):
             result, num = num, result % num
 
     return abs(result)
+
+
+
+
+def isfinite(x):
+    return not (isnan(x) or isinf(x))
+
+def isinf(x):
+    return x == float('inf') or x == float('-inf')
+
+def isnan(x):
+    return x != x
+
+def isqrt(x):
+    return nth_root(x,2) == int(nth_root(x,2))
+
+def lcm(*integers):
+    if not integers:
+        return 1
+
+    result = integers[0]
+    for i in integers:
+        if(i == 0): return 0 
+        result = result * i // gcd(result, i)
+
+    return result
+
+def ldexp_custom(m, e):
+    return m * (2**e)
+
+def modf(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError("modf()输入必须为整型或浮点数")
+
+    integer_part = int(x)
+    decimal_part = x - integer_part
+
+    return (decimal_part, integer_part)
+
+def turnc(x):
+    return int(x)
 
 def pow(a, n):
     if n == 0:
