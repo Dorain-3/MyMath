@@ -1,3 +1,4 @@
+from .math1 import *
 # 算圆周率
 def leibniz_pi(num_terms):
     pi = 0.0
@@ -10,6 +11,7 @@ def leibniz_pi(num_terms):
     return pi
 
 
+
 def floattopercent(a):
     try:
         if (a[-2:] == '.0'):
@@ -19,15 +21,6 @@ def floattopercent(a):
     except ValueError:
         decimal_places_num2 = len(a.split('.')[1]) if '.' in a else 0
         return decimal_places_num2
-
-
-def factorial(a):
-    if (a < 0 or a != int(a)):
-        return "阶乘输入只能为正整数"
-    elif (a == 1 or a == 0):
-        return 1
-    else:
-        return a * factorial(a - 1)
 
 
 # a底数 b次数
@@ -93,8 +86,8 @@ def sec(a):
 # asin，a为-1~1
 def asin(a):
     result = 0
-    a = a * leibniz_pi(150)
-    for i in range(1, 10, 2):
+  
+    for i in range(1, 150, 2):
         result = result + (float(factorial(((i - 1) / 2) * 2)) / (
                     exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(factorial(((i - 1) / 2))) ** 2))) * (a ** (i))
     return result
@@ -103,22 +96,20 @@ def asin(a):
 # acos，a为-1~1
 def acos(a):
     result = 0
-    a = a * leibniz_pi(150)
-    for i in range(1, 10, 2):
+ 
+    for i in range(1, 150, 2):
         n = int((i - 1) / 2)
         result = result + (
                     float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
     return leibniz_pi(150) / 2 - result
 
 
-# arctan，a为-1~1
-def arctan(a):
+def atan(x):
     result = 0
-    a = a * leibniz_pi(150)
-    for i in range(1, 10, 2):
-        result = result + (a ** (i)) * ((-1) ** ((i - 1) / 2)) / i
+    for n in range(0,1000):
+        coefficient = ((-1) ** n) * (x ** (2*n + 1)) / (2*n + 1)
+        result += coefficient
     return result
-
 
 def ln(a):
     if (a <= 0):
@@ -126,7 +117,7 @@ def ln(a):
         return 0
     else:
         result = 0
-        for i in range(1, 2000, 2):
+        for i in range(1, 150, 2):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 
@@ -135,19 +126,13 @@ def log(a, b):
     if (a <= 0 or b <= 0):
         print("输入无效")
         return 0
+    elif (a==1):
+        return 0
     else:
         return ln(b) / ln(a)
-
-
+    
 def sinh(a):
-    result = 0
-    for i in range(1, 100, 2):
-        result = result + (a ** i) / factorial(i)
-    return result
-
+    return (exp(a)-exp(-a))/2
 
 def cosh(a):
-    result = 0
-    for i in range(0, 100, 2):
-        result = result + (a ** i) / factorial(i)
-    return result
+    return (exp(a)+exp(-a))/2
