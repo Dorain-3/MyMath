@@ -1,4 +1,5 @@
-from .math1 import factorial,exp
+from MyMath.math1 import factorial, exp
+
 
 # 算圆周率
 def leibniz_pi(num_terms):
@@ -12,10 +13,9 @@ def leibniz_pi(num_terms):
     return pi
 
 
-
 def floattopercent(a):
     try:
-        if (a[-2:] == '.0'):
+        if a[-2:] == '.0':
             return 0
         a = int(a)
         return 1  # 尝试将输入转换为整数
@@ -27,11 +27,11 @@ def floattopercent(a):
 # a底数 b次数
 def exponentiation(a, b):
     if ((a == 0 and b < 0) or (
-            a < 0 and abs(int(float(b) * 10 ** floattopercent(str(b)))) % 2 == 1 and floattopercent(str(b)) > 0)):
+            a < 0 < floattopercent(str(b)) and abs(int(float(b) * 10 ** floattopercent(str(b)))) % 2 == 1)):
         return 0
     else:
         result = 1
-        if (b < 0):
+        if b < 0:
             a = 1 / a
         for i in range(0, abs(int(float(b) * 10 ** floattopercent(str(b))))):
             result = result * a
@@ -87,32 +87,35 @@ def sec(a):
 # asin，a为-1~1
 def asin(a):
     result = 0
-  
+
     for i in range(1, 150, 2):
         result = result + (float(factorial(((i - 1) / 2) * 2)) / (
-                    exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(factorial(((i - 1) / 2))) ** 2))) * (a ** (i))
+                exponentiation(float(4), float(((i - 1) / 2))) * i * (float(factorial(((i - 1) / 2))) ** 2))) * (
+                a ** i)
     return result
 
 
 # acos，a为-1~1
 def acos(a):
     result = 0
- 
+
     for i in range(1, 150, 2):
         n = int((i - 1) / 2)
         result = result + (
-                    float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
+                float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
+                a ** i)
     return leibniz_pi(150) / 2 - result
 
 
 def atan(x):
-    result=acos(nth_root(1/(1+x*x),2))
-    if(x<0): 
-        result=-result
+    result = acos(nth_root(1 / (1 + x * x), 2))
+    if x < 0:
+        result = -result
     return result
 
+
 def ln(a):
-    if (a <= 0):
+    if a <= 0:
         print("输入无效")
         return 0
     else:
@@ -121,33 +124,40 @@ def ln(a):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 
+
 # a为底数，b为对数
 def log(a, b):
-    if (a <= 0 or b <= 0):
+    if a <= 0 or b <= 0:
         print("输入无效")
         return 0
-    elif (a==1):
+    elif a == 1:
         return 0
     else:
         return ln(b) / ln(a)
-    
+
+
 def sinh(a):
-    return (exp(a)-exp(-a))/2
+    return (exp(a) - exp(-a)) / 2
+
 
 def tanh(a):
-    result=0
-    for i in range(1,100):
-        result=result+factorial(i)/(2**i-1)*(a**(2*i-1))
+    result = 0
+    for i in range(1, 100):
+        result = result + factorial(i) / (2 ** i - 1) * (a ** (2 * i - 1))
     return result
 
+
 def cosh(a):
-    return (exp(a)+exp(-a))/2
+    return (exp(a) + exp(-a)) / 2
+
 
 def asinh(a):
-    return ln(a+exponentiation(a**2+1,0.5))
+    return ln(a + exponentiation(a ** 2 + 1, 0.5))
+
 
 def acosh(a):
-    return ln(a+exponentiation(a**2-1,0.5))
+    return ln(a + exponentiation(a ** 2 - 1, 0.5))
+
 
 def atanh(a):
-    return 0.5*ln((a+1)/(a-1))
+    return 0.5 * ln((a + 1) / (a - 1))

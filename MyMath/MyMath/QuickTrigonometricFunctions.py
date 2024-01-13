@@ -2,11 +2,36 @@
 @author: Dorain-3
 @email: 3174950356@qq.com
 """
-import math
+import MathematicalConstants
 
 
-def sin_angle(x):  # 正弦函数，输入角度
-    return sin_radian(math.radians(x))
+def quick_sin_angle(x):  # 快速正弦函数，输入角度
+    if isinstance(x, str):
+        x = float(x)
+    signal = 0
+    if x > 0.0:
+        while x >= 360.0:
+            x -= 360.0
+    else:
+        while x < 0.0:
+            x += 360.0
+
+    if x > 180.0:
+        signal = 1
+        x -= 180.0
+
+    x = 180.0 - x if x > 90.0 else x
+
+    a = x * 0.1
+    a = int(a)
+    b = x - 10 * a
+    result = MathematicalConstants.sin_Table[a] * MathematicalConstants.cos_Table[
+        int(b)] + b * MathematicalConstants.hollyConstant * MathematicalConstants.sin_Table[9 - a]
+    return -result if signal > 0 else result
+
+
+x = input()
+print(quick_sin_angle(x))
 
 
 def sin_radian(x):  # 正弦函数，输入弧度
