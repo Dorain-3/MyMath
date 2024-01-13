@@ -1,5 +1,4 @@
-from .math1 import factorial, exp
-
+from .math1 import factorial,exp
 
 # 算圆周率
 def leibniz_pi(num_terms):
@@ -11,6 +10,7 @@ def leibniz_pi(num_terms):
         pi += term
         sign = -sign
     return pi
+
 
 
 def floattopercent(a):
@@ -87,33 +87,29 @@ def sec(a):
 # asin，a为-1~1
 def asin(a):
     result = 0
-
+  
     for i in range(1, 150, 2):
         result = result + (float(factorial(((i - 1) / 2) * 2)) / (
-                exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(factorial(((i - 1) / 2))) ** 2))) * (
-                             a ** (i))
+                    exponentiation(float(4), float(((i - 1) / 2))) * (i) * (float(factorial(((i - 1) / 2))) ** 2))) * (a ** (i))
     return result
 
 
 # acos，a为-1~1
 def acos(a):
     result = 0
-
+ 
     for i in range(1, 150, 2):
         n = int((i - 1) / 2)
         result = result + (
-                float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
-                             a ** (i))
+                    float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
     return leibniz_pi(150) / 2 - result
 
 
 def atan(x):
-    result = 0
-    for i in range(0, 100):
-        result = result + pow(2, 2 * i) * pow(factorial(i), 2) * pow(x, 2 * i + 1) / (
-                    float(factorial(2 * i + 1)) * pow(1 + x * x, i + 1))
+    result=acos(nth_root(1/(1+x*x),2))
+    if(x<0): 
+        result=-result
     return result
-
 
 def ln(a):
     if (a <= 0):
@@ -125,40 +121,33 @@ def ln(a):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 
-
 # a为底数，b为对数
 def log(a, b):
     if (a <= 0 or b <= 0):
         print("输入无效")
         return 0
-    elif (a == 1):
+    elif (a==1):
         return 0
     else:
         return ln(b) / ln(a)
-
-
+    
 def sinh(a):
-    return (exp(a) - exp(-a)) / 2
-
+    return (exp(a)-exp(-a))/2
 
 def tanh(a):
-    result = 0
-    for i in range(1, 100):
-        result = result + factorial(i) / (2 ** i - 1) * (a ** (2 * i - 1))
+    result=0
+    for i in range(1,100):
+        result=result+factorial(i)/(2**i-1)*(a**(2*i-1))
     return result
 
-
 def cosh(a):
-    return (exp(a) + exp(-a)) / 2
-
+    return (exp(a)+exp(-a))/2
 
 def asinh(a):
-    return ln(a + exponentiation(a ** 2 + 1, 0.5))
-
+    return ln(a+exponentiation(a**2+1,0.5))
 
 def acosh(a):
-    return ln(a + exponentiation(a ** 2 - 1, 0.5))
-
+    return ln(a+exponentiation(a**2-1,0.5))
 
 def atanh(a):
-    return 0.5 * ln((a + 1) / (a - 1))
+    return 0.5*ln((a+1)/(a-1))
