@@ -66,7 +66,6 @@ def fsum(iterable):
                 i += 1
             x = hi
         partials[i:] = [x]
-
     return sum(partials, 0.0)
 
 
