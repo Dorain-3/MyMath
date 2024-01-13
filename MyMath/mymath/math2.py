@@ -106,9 +106,9 @@ def acos(a):
 
 
 def atan(x):
-    result=0
-    for i in range(0,100):
-        result=result+pow(2,2*i)*pow(factorial(i),2)*pow(x,2*i+1)/(float(factorial(2*i+1))*pow(1+x*x,i+1))
+    result=acos(nth_root(1/(1+x*x),2))
+    if(x<0): 
+        result=-result
     return result
 
 def ln(a):
