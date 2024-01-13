@@ -117,7 +117,7 @@ def lcm(*integers):
 
     return result
 
-def ldexp_custom(m, e):
+def ldexp(m, e):
     return m * (2**e)
 
 def modf(x):
