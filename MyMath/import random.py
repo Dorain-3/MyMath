@@ -14,15 +14,15 @@ x_values = [i*0.01 for i in range(-1000, 1001, 1) ]
 # y_values = [i*0.01 for i in range(-100, 101, 1) ]
 
 function_name = math.atan.__name__
-# y_math = [math.atan(i) for i in x_values]
-# y_mymath = [math2.atan(i) for i in x_values]
+y_math = [math.atan(i) for i in x_values]
+y_mymath = [math2.atan(i) for i in x_values]
 
-# plt.plot(x_values, y_mymath, label='mymath库函数')
-# plt.plot(x_values, y_math, label='math库函数')
+plt.plot(x_values, y_mymath, label='mymath库函数')
+plt.plot(x_values, y_math, label='math库函数')
 
-# plt.xlabel('输入')
-# plt.ylabel('输出')
-# plt.title('mymath库函数和math库函数输出对比('+function_name+')')
-# plt.legend()
+plt.xlabel('输入')
+plt.ylabel('输出')
+plt.title('mymath库函数和math库函数输出对比('+function_name+')')
+plt.legend()
 
-# plt.show()
+plt.show()
