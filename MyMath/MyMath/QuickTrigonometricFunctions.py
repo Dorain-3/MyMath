@@ -30,63 +30,48 @@ def quick_sin_angle(x):  # 快速正弦函数，输入角度
     return -result if signal > 0 else result
 
 
-x = input()
-print(quick_sin_angle(x))
+def quick_sin_radian(x):  # 快速正弦函数，输入弧度
+    return quick_sin_angle(x * 180 / MathematicalConstants.PI)
 
 
-def sin_radian(x):  # 正弦函数，输入弧度
-    # TODO
-    return None
+def quick_cos_angle(x):  # 快速余弦函数，输入角度
+    return 1 - quick_sin_angle(x) * quick_sin_angle(x)
 
 
-def cos_angle(x):  # 余弦函数，输入角度
-    # TODO
-    return None
+def quick_cos_radian(x):  # 快速余弦函数，输入弧度
+    return 1 - quick_sin_radian(x) * quick_sin_radian(x)
 
 
-def cos_radian(x):  # 余弦函数，输入弧度
-    # TODO
-    return None
+def quick_tan_angle(x):  # 快速正切函数，输入角度
+    return quick_sin_angle(x) / quick_cos_angle(x)
 
 
-def tan_angle(x):  # 正切函数，输入角度
-    # TODO
-    return None
+def quick_tan_radian(x):  # 快速正切函数，输入弧度
+    return quick_sin_radian(x) / quick_cos_radian(x)
 
 
-def tan_radian(x):  # 正切函数，输入弧度
-    # TODO
-    return None
+def cot_angle(x):  # 快速余切函数，输入角度
+    return quick_cos_angle(x) / quick_sin_angle(x)
 
 
-def cot_angle(x):  # 余切函数，输入角度
-    # TODO
-    return None
+def quick_cot_radian(x):  # 快速余切函数，输入弧度
+    return quick_cos_radian(x) / quick_sin_radian(x)
 
 
-def cot_radian(x):  # 余切函数，输入弧度
-    # TODO
-    return None
+def quick_sec_angle(x):  # 快速正割函数，输入角度
+    return 1 / quick_cos_angle(x)
 
 
-def sec_angle(x):  # 正割函数，输入角度
-    # TODO
-    return None
+def quick_sec_radian(x):  # 快速正割函数，输入弧度
+    return 1 / quick_cos_radian(x)
 
 
-def sec_radian(x):  # 正割函数，输入弧度
-    # TODO
-    return None
+def quick_csc_angle(x):  # 快速余割函数，输入角度
+    return 1 / quick_sin_angle(x)
 
 
-def csc_angle(x):  # 余割函数，输入角度
-    # TODO
-    return None
-
-
-def csc_radian(x):  # 余割函数，输入弧度
-    # TODO
-    return None
+def quick_csc_radian(x):  # 快速余割函数，输入弧度
+    return 1 / quick_sin_radian(x)
 
 
 def asin_angle(x):  # 反正弦函数，输入角度
