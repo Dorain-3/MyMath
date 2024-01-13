@@ -78,18 +78,6 @@ def fmod(x, y):
     result = x - n * y
     return result
 
-def frexp(x):
-    from .math2 import log
-    if x == 0.0:
-        return (0.0, 0)
-
-    sign = 1 if x > 0 else -1
-    x = abs(x)
-
-    exponent = int(log(x,2))
-    mantissa = x / (2 ** exponent)
-
-    return (sign * mantissa, exponent)
 
 def gcd(*integers):
     if not integers:
@@ -116,7 +104,7 @@ def isnan(x):
 
 def isqrt(x):
     from .math2 import nth_root
-    return nth_root(x,2) == int(nth_root(x,2))
+    return int(nth_root(x,2))
 
 def lcm(*integers):
     if not integers:
