@@ -1,4 +1,5 @@
-from .math1 import *
+from .math1 import factorial,exp
+
 # 算圆周率
 def leibniz_pi(num_terms):
     pi = 0.0
@@ -105,8 +106,9 @@ def acos(a):
 
 
 def atan(x):
-    result=acos(nth_root(1/(1+x*x),2))
-
+    result=0
+    for i in range(0,100):
+        result=result+pow(2,2*i)*pow(factorial(i),2)*pow(x,2*i+1)/(float(factorial(2*i+1))*pow(1+x*x,i+1))
     return result
 
 def ln(a):
@@ -135,17 +137,17 @@ def sinh(a):
 def tanh(a):
     result=0
     for i in range(1,100):
-        result=result+jiecheng(i)/(2**i-1)*(a**(2*i-1))
+        result=result+factorial(i)/(2**i-1)*(a**(2*i-1))
     return result
 
 def cosh(a):
     return (exp(a)+exp(-a))/2
 
 def asinh(a):
-    return lnx(a+exponentiation(a**2+1,0.5))
+    return ln(a+exponentiation(a**2+1,0.5))
 
 def acosh(a):
-    return lnx(a+exponentiation(a**2-1,0.5))
+    return ln(a+exponentiation(a**2-1,0.5))
 
 def atanh(a):
-    return 0.5*lnx((a+1)/(a-1))
+    return 0.5*ln((a+1)/(a-1))

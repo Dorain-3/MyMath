@@ -1,4 +1,3 @@
-from .math2 import *
 def ceil(x):
     if x == int(x):
         return int(x)
@@ -26,8 +25,8 @@ def fabs(x):
         return x
 
 def factorial(n):
-    if not isinstance(n, int) or n <= 0:
-        raise ValueError("factorial() requires a positive integer")
+    if not isinstance(n, int) or n < 0:
+        raise ValueError("factorial() 需要正整数")
     if n == 0:
         return 1
     return n * factorial(n - 1)
@@ -73,13 +72,14 @@ def fsum(iterable):
 
 def fmod(x, y):
     if y == 0.0:
-        raise ValueError("fmod() division by zero")
+        raise ValueError("fmod() 除数为0")
     n = x / y
     n = int(n)
     result = x - n * y
     return result
 
 def frexp(x):
+    from .math2 import log
     if x == 0.0:
         return (0.0, 0)
 
@@ -115,6 +115,7 @@ def isnan(x):
     return x != x
 
 def isqrt(x):
+    from .math2 import nth_root
     return nth_root(x,2) == int(nth_root(x,2))
 
 def lcm(*integers):
