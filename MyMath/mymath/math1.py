@@ -177,7 +177,7 @@ def pow(a, n, z=float('inf')):
 def exp(x):
     result = 1.0
     term = 1.0
-    for i in range(1, 1000000):
+    for i in range(1, 10000):
         term *= x / i
         result += term
     return result

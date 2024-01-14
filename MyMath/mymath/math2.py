@@ -38,7 +38,7 @@ def nth_root(number, n, precision=0.0000001):
 # a为弧度制系数，π的系数
 def sin(a):
     result = 0
-    a = a * PI
+
     for i in range(1, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
     return result
@@ -47,7 +47,7 @@ def sin(a):
 # a为弧度制系数，π的系数
 def cos(a):
     result = 0
-    a = a * PI
+
     for i in range(0, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
     return result
@@ -92,7 +92,7 @@ def acos(a):
         n = int((i - 1) / 2)
         result = result + (
                 float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
-                a ** i)
+                         a ** i)
     return PI / 2 - result
 
 
@@ -115,7 +115,7 @@ def ln(a):
         return 0
     else:
         result = 0
-        for i in range(1, 150, 2):
+        for i in range(1, 200000, 2):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 
