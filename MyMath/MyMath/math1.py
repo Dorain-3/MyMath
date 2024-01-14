@@ -1,3 +1,4 @@
+# x为输入
 def ceil(x):
     if isinstance(x, int) or isinstance(x, float):
         raise ValueError("参数应为任意实数.")
@@ -5,6 +6,7 @@ def ceil(x):
         return int(x)
     else:
         return int(x) + 1
+
 
 def comb(n, k):
     if n < 0 or k < 0 or not isinstance(n, int) or not isinstance(k, int):
@@ -14,17 +16,20 @@ def comb(n, k):
     else:
         return 0
 
+
 def copysign(x, y):
     if y < 0:
         return -abs(x)
     else:
         return abs(x)
 
+
 def fabs(x):
     if x < 0:
         return -x
     else:
         return x
+
 
 def factorial(n):
     if not isinstance(n, int) or n < 0:
@@ -33,6 +38,7 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
+
 def floor(x):
     if x >= 0:
         return int(x)
@@ -40,9 +46,10 @@ def floor(x):
         int_part = int(x)
         return int_part if x == int_part else int_part - 1
 
+
 def frexp(x):
     if x == 0.0:
-        return (0.0, 0)
+        return 0.0, 0
 
     sign = 1 if x > 0 else -1
     x = abs(x)
@@ -52,7 +59,8 @@ def frexp(x):
         x /= 2.0
         e += 1
 
-    return (sign * x, e)
+    return sign * x, e
+
 
 def fsum(iterable):
     partials = []
@@ -92,20 +100,22 @@ def gcd(*integers):
     return abs(result)
 
 
-
-
 def isfinite(x):
     return not (isnan(x) or isinf(x))
+
 
 def isinf(x):
     return x == float('inf') or x == float('-inf')
 
+
 def isnan(x):
     return x != x
 
+
 def isqrt(x):
     from .math2 import nth_root
-    return int(nth_root(x,2))
+    return int(nth_root(x, 2))
+
 
 def lcm(*integers):
     if not integers:
@@ -113,13 +123,16 @@ def lcm(*integers):
 
     result = integers[0]
     for i in integers:
-        if(i == 0): return 0 
+        if i == 0:
+            return 0
         result = result * i // gcd(result, i)
 
     return result
 
+
 def ldexp(m, e):
-    return m * (2**e)
+    return m * (2 ** e)
+
 
 def modf(x):
     if not isinstance(x, (int, float)):
@@ -128,16 +141,19 @@ def modf(x):
     integer_part = int(x)
     decimal_part = x - integer_part
 
-    return (decimal_part, integer_part)
+    return decimal_part, integer_part
+
 
 def turnc(x):
     return int(x)
+
 
 def pow(a, n):
     fa=float(a)
     fn=float(n)
     result=fa**fn
     return result
+
 
 def exp(x):
     result = 1.0
@@ -146,4 +162,3 @@ def exp(x):
         term *= x / i
         result += term
     return result
-
