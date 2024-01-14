@@ -1,4 +1,6 @@
 def ceil(x):
+    if isinstance(x, int) or isinstance(x, float):
+        raise ValueError("参数应为任意实数.")
     if x == int(x):
         return int(x)
     else:
@@ -132,18 +134,15 @@ def turnc(x):
     return int(x)
 
 def pow(a, n):
-    if n == 0:
-        return 1
-    elif n % 2 == 1:
-        return pow(a, n - 1) * a
-    else:
-        temp = pow(a, n // 2)
-        return temp * temp
+    fa=float(a)
+    fn=float(n)
+    result=fa**fn
+    return result
 
 def exp(x):
     result = 1.0
     term = 1.0
-    for i in range(1, 1000):
+    for i in range(1, 1000000):
         term *= x / i
         result += term
     return result

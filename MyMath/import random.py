@@ -11,7 +11,7 @@ size = 10
 # x = range(size)
 # y_values = [random.randint(1, 10) for _ in range(size)]
 x_values = [i*0.01 for i in range(-1000, 1001, 1) ]
-# y_values = [i*0.01 for i in range(-100, 101, 1) ]
+# # y_values = [i*0.01 for i in range(-100, 101, 1) ]
 
 function_name = math.atan.__name__
 y_math = [math.atan(i) for i in x_values]
@@ -26,3 +26,4 @@ plt.title('mymath库函数和math库函数输出对比('+function_name+')')
 plt.legend()
 
 plt.show()
+print(math2.exp(1))
