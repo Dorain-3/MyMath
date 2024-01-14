@@ -1,6 +1,7 @@
 import mymath as math2
 import random
 import math
+import time
 import matplotlib.pyplot as plt
 
 
@@ -10,8 +11,8 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 # size = 10
 # # x = range(size)
 # # y_values = [random.randint(1, 10) for _ in range(size)]
-# x_values = [i*0.01 for i in range(-1000, 1001, 1) ]
-# # # y_values = [i*0.01 for i in range(-100, 101, 1) ]
+x_values = [i*0.01 for i in range(0, 100001, 1) ]
+# y_values = [i*0.01 for i in range(-100, 101, 1) ]
 
 # function_name = math.atan.__name__
 # y_math = [math.atan(i) for i in x_values]
@@ -26,4 +27,16 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 # plt.legend()
 
 # plt.show()
-print(math2.fsum([25,12.2,13.6]))
+
+print(math2.pow(2,4))
+
+# starttime=time.time()
+# y_math = [math.sqrt(i) for i in x_values]
+# endtime=time.time()
+
+# starttime2=time.time()
+# y_mymath = [math2.sqrt(i) for i in x_values]
+# endtime2=time.time()
+
+# print(endtime-starttime)
+# print(endtime2-starttime2)
