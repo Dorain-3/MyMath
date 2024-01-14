@@ -1,4 +1,4 @@
-from .math1 import factorial, exp
+from .math1 import *
 from .mathematical_constants import *
 
 
@@ -35,40 +35,40 @@ def nth_root(number, n, precision=0.0000001):
     return guess
 
 
-# a为弧度制系数，π的系数
+# a为弧度制
 def sin(a):
     result = 0
-    a = a * PI
     for i in range(1, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
     return result
 
 
-# a为弧度制系数，π的系数
+# a为弧度制
 def cos(a):
     result = 0
-    a = a * PI
     for i in range(0, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
     return result
 
 
-# a为弧度制系数，π的系数
+# a为弧度制
 def tan(a):
     return sin(a) / cos(a)
 
 
-# a为弧度制系数，π的系数
+# a为弧度制
 def cot(a):
+    if(a==0):
+        return "为中断点"
     return cos(a) / sin(a)
 
 
-# 余割，a为弧度制系数，π的系数
+# 余割，a为弧度制
 def csc(a):
     return 1 / sin(a)
 
 
-# 正割，a为弧度制系数，π的系数
+# 正割，a为弧度制
 def sec(a):
     return 1 / cos(a)
 
@@ -97,25 +97,19 @@ def acos(a):
 
 
 def atan(a):
-    num = 1000
-    result = 0.0
-    del_val = a / num
+    x=acos(sqrt(1/(1+a*a)))
+    if(a>=0):
+        return x
+    else:
+        return -x
 
-    for i in range(num):
-        a = i * del_val
-        temp = 1 / (a ** 2 + 1) * del_val
-        result += temp
-
-    return result
-
-
-def ln(a):
+def ln(x):
     if a <= 0:
         print("输入无效")
         return 0
     else:
         result = 0
-        for i in range(1, 150, 2):
+        for i in range(1, 2000, 2):
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 

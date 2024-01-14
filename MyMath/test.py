@@ -11,24 +11,26 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 # size = 10
 # # x = range(size)
 # # y_values = [random.randint(1, 10) for _ in range(size)]
-x_values = [i*0.01 for i in range(0, 100001, 1) ]
+x_values = [i*0.01 for i in range(-10000, 10001, 1) ]
 # y_values = [i*0.01 for i in range(-100, 101, 1) ]
 
-# function_name = math.atan.__name__
-# y_math = [math.atan(i) for i in x_values]
-# y_mymath = [math2.atan(i) for i in x_values]
+function_name = math.atan.__name__
+y_math = [math.atan(i) for i in x_values]
+y_mymath = [math2.atan(i) for i in x_values]
 
-# plt.plot(x_values, y_mymath, label='mymath库函数')
-# plt.plot(x_values, y_math, label='math库函数')
+plt.plot(x_values, y_mymath, label='mymath库函数')
+plt.plot(x_values, y_math, label='math库函数')
 
-# plt.xlabel('输入')
-# plt.ylabel('输出')
-# plt.title('mymath库函数和math库函数输出对比('+function_name+')')
-# plt.legend()
+plt.xlabel('输入')
+plt.ylabel('输出')
+plt.title('mymath库函数和math库函数输出对比('+function_name+')')
+plt.legend()
 
-# plt.show()
+plt.show()
+# print(math2.cot(0))
+# print(math.log(15000000))
+# print(math2.ln(15000000))
 
-print(math2.pow(2,4))
 
 # starttime=time.time()
 # y_math = [math.sqrt(i) for i in x_values]
