@@ -1,5 +1,5 @@
-from MyMath.math1 import factorial, exp
-from MyMath.mathematical_constants import *
+from .math1 import factorial, exp
+from .mathematical_constants import *
 
 
 def floattopercent(a):

@@ -1,3 +1,6 @@
+import struct
+
+
 def ceil(x):
     if x == int(x):
         return int(x)
@@ -110,9 +113,23 @@ def isnan(x):
 
 
 def isqrt(x):
-    from .math2 import nth_root
-    return int(nth_root(x, 2))
+    return int(sqrt(x))
 
+def sqrt(x):
+    threehalfs = 1.5
+    x2 = x * 0.5
+    y = x
+
+    packed_y = struct.pack('>f', y)
+    i = struct.unpack('>l', packed_y)[0]
+
+    i = 0x5f3759df - (i >> 1)
+    packed_i = struct.pack('>l', i)
+    y = struct.unpack('>f', packed_i)[0]
+
+    y = y * (threehalfs - (x2 * y * y))
+
+    return 1/y
 
 def lcm(*integers):
     if not integers:
@@ -128,7 +145,7 @@ def lcm(*integers):
 
 
 def ldexp(m, e):
-    return m * (2 ** e)
+    return m * pow(2,e)
 
 
 def modf(x):
@@ -145,7 +162,7 @@ def turnc(x):
     return int(x)
 
 
-def pow(a, n, z):
+def pow(a, n, z=float('inf')):
     fa = float(a)
     fn = float(n)
     if (n == 0):
