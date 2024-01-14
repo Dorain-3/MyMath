@@ -115,6 +115,7 @@ def isnan(x):
 def isqrt(x):
     return int(sqrt(x))
 
+
 def sqrt(x):
     threehalfs = 1.5
     x2 = x * 0.5
@@ -129,7 +130,8 @@ def sqrt(x):
 
     y = y * (threehalfs - (x2 * y * y))
 
-    return 1/y
+    return 1 / y
+
 
 def lcm(*integers):
     if not integers:
@@ -145,7 +147,7 @@ def lcm(*integers):
 
 
 def ldexp(m, e):
-    return m * pow(2,e)
+    return m * pow(2, e)
 
 
 def modf(x):
@@ -163,11 +165,9 @@ def turnc(x):
 
 
 def pow(a, n, z=float('inf')):
-    fa = float(a)
-    fn = float(n)
-    if (n == 0):
+    if n == 0:
         return 1
-    elif (n % 2 == 1):
+    elif n % 2 == 1:
         return pow(a, n - 1) * a % z
     else:
         result = pow(a, n / 2) % z

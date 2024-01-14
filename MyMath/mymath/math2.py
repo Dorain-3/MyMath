@@ -92,7 +92,7 @@ def acos(a):
         n = int((i - 1) / 2)
         result = result + (
                 float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
-                             a ** (i))
+                a ** i)
     return PI / 2 - result
 
 

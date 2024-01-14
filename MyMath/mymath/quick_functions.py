@@ -117,4 +117,3 @@ def quick_sqrt(x):  # 快速平方根倒数函数
     y = float(i)
     y = y * (1.5 - x2 * y * y)
     return y
-
