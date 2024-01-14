@@ -1,21 +1,6 @@
-<<<<<<< HEAD:MyMath/mymath/math2.py
 from .math1 import factorial,exp
 from .MathematicalConstants import *
-=======
 
-
-# 算圆周率
-def leibniz_pi(num_terms):
-    pi = 0.0
-    sign = 1
-    for i in range(num_terms):
-        denominator = 2 * i + 1
-        term = 4 / denominator * sign
-        pi += term
-        sign = -sign
-    return pi
-
->>>>>>> 4e3bd536b4919c4631db5bac2dc138a3d3b87870:MyMath/MyMath/math2.py
 
 def floattopercent(a):
     try:
@@ -53,7 +38,7 @@ def nth_root(number, n, precision=0.0000001):
 # a为弧度制系数，π的系数
 def sin(a):
     result = 0
-    a = a * pi
+    a = a * PI
     for i in range(1, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
     return result
@@ -62,7 +47,7 @@ def sin(a):
 # a为弧度制系数，π的系数
 def cos(a):
     result = 0
-    a = a * pi
+    a = a * PI
     for i in range(0, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
     return result
@@ -106,9 +91,8 @@ def acos(a):
     for i in range(1, 150, 2):
         n = int((i - 1) / 2)
         result = result + (
-<<<<<<< HEAD:MyMath/mymath/math2.py
                     float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
-    return pi / 2 - result
+    return PI / 2 - result
 
 
 def atan(a):
@@ -120,18 +104,7 @@ def atan(a):
         a = i * del_val
         temp = 1 / (a**2 + 1) * del_val
         result += temp
-    
-=======
-                float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
-                a ** i)
-    return leibniz_pi(150) / 2 - result
 
-
-def atan(x):
-    result = acos(nth_root(1 / (1 + x * x), 2))
-    if x < 0:
-        result = -result
->>>>>>> 4e3bd536b4919c4631db5bac2dc138a3d3b87870:MyMath/MyMath/math2.py
     return result
 
 
