@@ -148,11 +148,16 @@ def turnc(x):
     return int(x)
 
 
-def pow(a, n):
+def pow(a, n, z):
     fa=float(a)
     fn=float(n)
-    result=fa**fn
-    return result
+    if(n==0):
+        return 1
+    elif(n%2==1):
+        return pow(a,n-1)*a%z
+    else: 
+        result=pow(a,n/2)%z
+        return result*result%z
 
 
 def exp(x):

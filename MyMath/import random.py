@@ -1,4 +1,4 @@
-import MyMath as math2
+import mymath as math2
 import random
 import math
 import matplotlib.pyplot as plt
