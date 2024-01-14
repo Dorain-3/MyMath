@@ -11,12 +11,12 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 # size = 10
 # # x = range(size)
 # # y_values = [random.randint(1, 10) for _ in range(size)]
-x_values = [i*0.01 for i in range(-10000, 10001, 1) ]
+x_values = [i*0.1 for i in range(-100, 101, 1) ]
 # y_values = [i*0.01 for i in range(-100, 101, 1) ]
 
-function_name = math.atan.__name__
-y_math = [math.atan(i) for i in x_values]
-y_mymath = [math2.atan(i) for i in x_values]
+function_name = math.sin.__name__
+y_math = [math.sin(i) for i in x_values]
+y_mymath = [math2.sin(i) for i in x_values]
 
 plt.plot(x_values, y_mymath, label='mymath库函数')
 plt.plot(x_values, y_math, label='math库函数')

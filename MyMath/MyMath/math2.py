@@ -37,6 +37,11 @@ def nth_root(number, n, precision=0.0000001):
 
 # a为弧度制
 def sin(a):
+    a %= 2*PI
+    if(a > PI):
+        return -sin(a-PI)
+    elif (a > PI/2) :
+        return  sin(PI-a)  
     result = 0
     for i in range(1, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
@@ -45,10 +50,7 @@ def sin(a):
 
 # a为弧度制
 def cos(a):
-    result = 0
-    for i in range(0, 150, 2):
-        result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
-    return result
+    return sin(PI/2-a)
 
 
 # a为弧度制

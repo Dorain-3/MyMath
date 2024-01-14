@@ -2,9 +2,9 @@
 @author: Dorain-3
 @email: 3174950356@qq.com
 """
-from mathematical_constants import *
-from math1 import *
-from math2 import *
+from .mathematical_constants import *
+from .math1 import *
+from .math2 import *
 
 
 def quick_sin_angle(x):  # 快速正弦函数，输入角度

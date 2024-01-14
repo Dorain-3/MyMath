@@ -53,6 +53,7 @@ def test_sinh():
         difference += abs(math.sinh(i * 0.001) - mymath.sinh(i * 0.001))
     print(difference / 1000)
 
+# test_sin()
 
 # test_cos()
 
@@ -60,6 +61,6 @@ def test_sinh():
 
 # test_exp()
 
-# test_atan()
+test_atan()
 
-test_sinh()
+# test_sinh()
