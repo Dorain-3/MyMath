@@ -1,6 +1,5 @@
-# x为输入
 def ceil(x):
-    if isinstance(x, int) or isinstance(x, float):
+    if not isinstance(x, int) and not isinstance(x, float):
         raise ValueError("参数应为任意实数.")
     if x == int(x):
         return int(x)
@@ -18,10 +17,10 @@ def comb(n, k):
 
 
 def copysign(x, y):
-    if y < 0:
-        return -abs(x)
-    else:
-        return abs(x)
+    a=1.0 if y >= 0.0 else -1.0
+    if str(y) == str(-0.0):
+        a = -1.0
+    return abs(x)*a
 
 
 def fabs(x):
