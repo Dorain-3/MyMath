@@ -1,6 +1,4 @@
 def ceil(x):
-    if not isinstance(x, int) and not isinstance(x, float):
-        raise ValueError("参数应为任意实数.")
     if x == int(x):
         return int(x)
     else:
@@ -69,9 +67,9 @@ def fsum(iterable):
             if abs(x) < abs(y):
                 x, y = y, x
             hi = x + y
-            lo = y - (hi - x)
-            if lo:
-                partials[i] = lo
+            low = y - (hi - x)
+            if low:
+                partials[i] = low
                 i += 1
             x = hi
         partials[i:] = [x]

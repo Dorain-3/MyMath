@@ -26,4 +26,4 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 # plt.legend()
 
 # plt.show()
-print(math2.copysign(1.0,-0.0))
+print(math2.fsum([25,12.2,13.6]))
