@@ -38,10 +38,6 @@ def nth_root(number, n, precision=0.0000001):
 # a为弧度制
 def sin(a):
     result = 0
-<<<<<<< HEAD:MyMath/mymath/math2.py
-=======
-
->>>>>>> 9e5ce766d4c238bcf5972e5e1728dc428dad1ccd:mymath/math2.py
     for i in range(1, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** ((i + 1) / 2 - 1))
     return result
@@ -50,10 +46,6 @@ def sin(a):
 # a为弧度制
 def cos(a):
     result = 0
-<<<<<<< HEAD:MyMath/mymath/math2.py
-=======
-
->>>>>>> 9e5ce766d4c238bcf5972e5e1728dc428dad1ccd:mymath/math2.py
     for i in range(0, 150, 2):
         result = result + ((exponentiation(a, float(i))) / factorial(i)) * ((-1) ** (i / 2))
     return result
@@ -111,17 +103,13 @@ def atan(a):
     else:
         return -x
 
-def ln(x):
+def ln(a):
     if a <= 0:
         print("输入无效")
         return 0
     else:
         result = 0
-<<<<<<< HEAD:MyMath/mymath/math2.py
         for i in range(1, 2000, 2):
-=======
-        for i in range(1, 200000, 2):
->>>>>>> 9e5ce766d4c238bcf5972e5e1728dc428dad1ccd:mymath/math2.py
             result = result + (((a - 1) / (a + 1)) ** i) * (1 / i)
         return result * 2
 
