@@ -107,3 +107,14 @@ def quick_asec(x):  # 反正割函数
 
 def quick_acsc(x):  # 反余割函数
     return quick_asin(1 / x)
+
+
+def quick_sqrt(x):  # 快速平方根倒数函数
+    x2 = x * 0.5
+    y = x
+    i = int(y)
+    i = 0x5f3759df - (i >> 1)
+    y = float(i)
+    y = y * (1.5 - x2 * y * y)
+    return y
+
