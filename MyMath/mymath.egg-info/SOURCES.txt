@@ -1,0 +1,12 @@
+setup.py
+mymath/__init__.py
+mymath/math1.py
+mymath/math2.py
+mymath/mathematical_constants.py
+mymath/quick_functions.py
+mymath/test.py
+mymath/test_.py
+mymath.egg-info/PKG-INFO
+mymath.egg-info/SOURCES.txt
+mymath.egg-info/dependency_links.txt
+mymath.egg-info/top_level.txt
