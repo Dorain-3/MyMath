@@ -2,7 +2,9 @@
 @author: Dorain-3
 @email: 3174950356@qq.com
 """
-import MathematicalConstants
+from mathematical_constants import *
+from math1 import *
+from math2 import *
 
 
 def quick_sin_angle(x):  # 快速正弦函数，输入角度
@@ -25,13 +27,13 @@ def quick_sin_angle(x):  # 快速正弦函数，输入角度
     a = x * 0.1
     a = int(a)
     b = x - 10 * a
-    result = MathematicalConstants.sin_Table[a] * MathematicalConstants.cos_Table[
-        int(b)] + b * MathematicalConstants.hollyConstant * MathematicalConstants.sin_Table[9 - a]
+    result = sin_Table[a] * cos_Table[
+        int(b)] + b * HOLLY_CONSTANT * sin_Table[9 - a]
     return -result if signal > 0 else result
 
 
 def quick_sin_radian(x):  # 快速正弦函数，输入弧度
-    return quick_sin_angle(x * 180 / MathematicalConstants.PI)
+    return quick_sin_angle(x * 180 / PI)
 
 
 def quick_cos_angle(x):  # 快速余弦函数，输入角度
@@ -74,61 +76,34 @@ def quick_csc_radian(x):  # 快速余割函数，输入弧度
     return 1 / quick_sin_radian(x)
 
 
-def asin_angle(x):  # 反正弦函数，输入角度
-    # TODO
-    return None
+def quick_atan(x):  # 反正切函数
+    if x > 1 or x < -1:
+        return atan(x)
+    else:
+        return PI / 4 * x - x * (fabs(x) - 1) * (0.2447 + 0.0663 * fabs(x))
 
 
-def asin_radian(x):  # 反正弦函数，输入弧度
-    # TODO
-    return None
+def quick_asin(x):  # 反正弦函数, 使用CORDIC算法实现
+    if x == 1:
+        return PI / 2
+    else:
+        return quick_atan(x / nth_root(1 - x * x, 2))
 
 
-def acos_angle(x):  # 反余弦函数，输入角度
-    # TODO
-    return None
+def quick_acos(x):  # 反余弦函数
+    if x == 0:
+        return PI / 2
+    else:
+        return quick_asin(nth_root(1 - x * x, 2))
 
 
-def acos_radian(x):  # 反余弦函数，输入弧度
-    # TODO
-    return None
+def quick_acot(x):  # 反余切函数
+    return quick_acos(x / nth_root(1 + x * x, 2))
 
 
-def atan_angle(x):  # 反正切函数，输入角度
-    # TODO
-    return None
+def quick_asec(x):  # 反正割函数
+    return quick_acos(1 / x)
 
 
-def atan_radian(x):  # 反正切函数，输入弧度
-    # TODO
-    return None
-
-
-def acot_angle(x):  # 反余切函数，输入角度
-    # TODO
-    return None
-
-
-def acot_radian(x):  # 反余切函数，输入弧度
-    # TODO
-    return None
-
-
-def asec_angle(x):  # 反正割函数，输入角度
-    # TODO
-    return None
-
-
-def asec_radian(x):  # 反正割函数，输入弧度
-    # TODO
-    return None
-
-
-def acsc_angle(x):  # 反余割函数，输入角度
-    # TODO
-    return None
-
-
-def acsc_radian(x):  # 反余割函数，输入弧度
-    # TODO
-    return None
+def quick_acsc(x):  # 反余割函数
+    return quick_asin(1 / x)

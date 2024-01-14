@@ -1,5 +1,5 @@
-from .math1 import factorial,exp
-from .MathematicalConstants import *
+from MyMath.math1 import factorial, exp
+from MyMath.mathematical_constants import *
 
 
 def floattopercent(a):
@@ -80,7 +80,7 @@ def asin(a):
     for i in range(1, 150, 2):
         result = result + (float(factorial(((i - 1) / 2) * 2)) / (
                 exponentiation(float(4), float(((i - 1) / 2))) * i * (float(factorial(((i - 1) / 2))) ** 2))) * (
-                a ** i)
+                         a ** i)
     return result
 
 
@@ -91,18 +91,19 @@ def acos(a):
     for i in range(1, 150, 2):
         n = int((i - 1) / 2)
         result = result + (
-                    float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (a ** (i))
+                float(factorial((i - 1))) / (exponentiation(float(4), float(n)) * i * ((factorial(n)) ** 2))) * (
+                             a ** (i))
     return PI / 2 - result
 
 
 def atan(a):
-    num=1000
+    num = 1000
     result = 0.0
     del_val = a / num
-    
+
     for i in range(num):
         a = i * del_val
-        temp = 1 / (a**2 + 1) * del_val
+        temp = 1 / (a ** 2 + 1) * del_val
         result += temp
 
     return result

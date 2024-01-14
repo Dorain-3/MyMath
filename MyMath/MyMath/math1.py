@@ -17,10 +17,10 @@ def comb(n, k):
 
 
 def copysign(x, y):
-    a=1.0 if y >= 0.0 else -1.0
+    a = 1.0 if y >= 0.0 else -1.0
     if str(y) == str(-0.0):
         a = -1.0
-    return abs(x)*a
+    return abs(x) * a
 
 
 def fabs(x):
@@ -148,15 +148,15 @@ def turnc(x):
 
 
 def pow(a, n, z):
-    fa=float(a)
-    fn=float(n)
-    if(n==0):
+    fa = float(a)
+    fn = float(n)
+    if (n == 0):
         return 1
-    elif(n%2==1):
-        return pow(a,n-1)*a%z
-    else: 
-        result=pow(a,n/2)%z
-        return result*result%z
+    elif (n % 2 == 1):
+        return pow(a, n - 1) * a % z
+    else:
+        result = pow(a, n / 2) % z
+        return result * result % z
 
 
 def exp(x):
